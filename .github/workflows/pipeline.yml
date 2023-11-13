@@ -25,7 +25,7 @@ jobs:
       - name: Build and test
         run: npm run build && npm test
 
-      # - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy app
         if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message), ' '), '#skip') }}
         run: flyctl deploy --remote-only
@@ -60,6 +60,6 @@ jobs:
         with:
             severity: info
             text: A new version of Pokedex deployed
-            details: to https://purple-paper-1689.fly.dev by ${{ toJson(github.event.commits.*.author.username) }}
+            details: to https://purple-paper-1689.fly.dev by ${{ toJson(github.actor) }}
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
