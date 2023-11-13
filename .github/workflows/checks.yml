@@ -12,4 +12,4 @@ jobs:
             - name: Check the deployed service URL
               uses: jtalk/url-health-check-action@v3
               with:
-                url: https://purple-paper-1689.fly.dev
+                url: https://wispy-moon-1671.fly.dev/
